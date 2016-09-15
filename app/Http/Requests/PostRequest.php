@@ -15,7 +15,7 @@ class PostRequest extends Request
 
         return [
             'title'   => 'required',
-            'slug'    => 'required|unique:posts,slug' . ($post ? ',' . $post->id : null),
+            'slug'    => 'required|unique:posts,slug,' . ($post ? ',' . $post->id : 'NULL') . ',id,deleted_at,NULL',
             'content' => 'required',
         ];
     }
