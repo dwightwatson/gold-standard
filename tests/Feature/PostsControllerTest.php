@@ -75,7 +75,9 @@ class PostsControllerTest extends TestCase
     {
         $post = factory(Post::class)->create();
 
-        $response = $this->put("/posts/{$post->id}", ['title' => 'Updated']);
+        $attributes = factory(Post::class)->build(['title' => 'Updated'])->toArray();
+
+        $response = $this->put("/posts/{$post->id}", $attributes);
 
         $response->assertRedirect("/posts/{$post->id}");
 

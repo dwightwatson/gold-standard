@@ -1,7 +1,8 @@
 # Gold Standard
+
 ## A Laravel boilerplate resource
 
-This repo is an example of what I consider to be a "gold standard" of serving a resource with the Laravel framework. I've tried to demonstrate how to simply and cleanly put together a tested resource as a reference to other developers. This is how I teach newer Laravel developers to approach tackling this sort of problem.
+This repo is an example of what I consider to be my "gold standard" of a resource-oritented application with the Laravel framework. I attempt to demonstrate how to put together a clean and tested resource (a `Post`) as an example. This is I guide newer Laravel developers to tackling this sort of problem.
 
 ### Get started
 

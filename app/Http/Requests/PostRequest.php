@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\validation\Rule;
+
 class PostRequest extends Request
 {
     /**
@@ -11,12 +13,26 @@ class PostRequest extends Request
      */
     public function rules()
     {
-        $post = $this->parameter('post');
-
         return [
             'title'   => 'required',
-            'slug'    => 'required|unique:posts,slug,' . ($post ? ',' . $post->id : 'NULL') . ',id,deleted_at,NULL',
+            'slug'    => ['required', $this->uniqueSlug()],
             'content' => 'required',
         ];
+    }
+
+    /**
+     * Build a unique rule for the slug.
+     *
+     * @return \Illuminate\Validation\Rule
+     */
+    protected function uniqueSlug()
+    {
+        $post = $this->parameter('post');
+
+        Rule::unique('posts', 'slug')
+            ->ignore($post->id)
+            ->where(function ($query) {
+                $query->whereNull('deleted_at');
+            });
     }
 }
