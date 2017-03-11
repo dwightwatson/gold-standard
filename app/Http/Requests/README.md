@@ -1,6 +1,6 @@
 ## Requests
 
-Use form request objects to handle any sort of validation that represents a resource or is going to be used in more than one place. If you have different logic for creating/updating a resource you might consider `CreatePostRequest` and `UpdatePostRequest` or `Posts\CreateRequest` and `Posts\UpdateRequest` instead.
+Use form request objects to handle any sort of validation that represents a resource or is going to be used in more than one place. If you have different logic for creating/updating a resource you might consider `CreatePostRequest`/`UpdatePostRequest` or `Posts\CreateRequest`/`Posts\UpdateRequest` instead (and have your update request extend your create request).
 
 Don't forget that these objects extend from `Illuminate\Http\Request`, so you have access to the authenticated user and route parameters.
 
