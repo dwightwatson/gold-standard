@@ -32,7 +32,10 @@ class Post extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'published_at',
+        'deleted_at'
+    ];
 
     /**
      * Scope a query to only published posts.
