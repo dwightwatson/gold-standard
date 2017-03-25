@@ -37,7 +37,7 @@ class PostsControllerTest extends TestCase
 
         $post = Post::first();
 
-        $response->assertRedirect("/posts/$[post->id}");
+        $response->assertRedirect("/posts/{$post->id}");
     }
 
     /** @test */
