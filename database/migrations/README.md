@@ -6,7 +6,9 @@ Be descriptive in the naming of your migrations. If you're creating a table, `Cr
 
 ### Foreign keys
 
-Don't use database foreign keys and instead manage the associations in your application code. Your code should already ensure that associations map correctly, so don't duplicate that code in your database.
+I generally don't use foreign keys and instead manage associations through the application code. This is so there is only definition of how associations map (in the application code) rather than duplicating it between code and database constraints.
+
+However, if you opt to use foreign keys (because you prefer them, want additional data integrity, or any other reason) use them consistently.
 
 Your associated columns should go immediately after the `id` column and before anything else. Use the association column names that Laravel expects to reduce boilerplate and help other developers. For example, if a `Post` belongs to a `User` it should indicate that with a `user_id` column.
 
