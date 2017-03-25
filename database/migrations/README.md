@@ -6,9 +6,7 @@ Be descriptive in the naming of your migrations. If you're creating a table, `Cr
 
 ### Foreign keys
 
-I generally don't use foreign keys and instead manage associations through the application code. This is so there is only definition of how associations map (in the application code) rather than duplicating it between code and database constraints.
-
-However, if you opt to use foreign keys (because you prefer them, want additional data integrity, or any other reason) use them consistently.
+Use foreign keys where you can to preserve data integrity and get indexing on the column (and therefore a lookup boost). Some GUI clients like Sequel Pro will also provide an inteface to traverse your database when foreign keys are used.
 
 Your associated columns should go immediately after the `id` column and before anything else. Use the association column names that Laravel expects to reduce boilerplate and help other developers. For example, if a `Post` belongs to a `User` it should indicate that with a `user_id` column.
 
@@ -17,7 +15,6 @@ Your associated columns should go immediately after the `id` column and before a
 I generally use soft deletes unless otherwise required. If your application doesn't require them then don't.
 
 Note that the unique index on the `slug` column is a compound index with `deleted_at` - this means that a slug can be reused if posts that previously used it have been deleted.
-
 
 ### Indexes
 
