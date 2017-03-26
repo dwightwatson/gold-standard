@@ -31,7 +31,7 @@ class PostsControllerTest extends TestCase
     /** @test */
     function it_stores_a_valid_post()
     {
-        $attributes = factory(Post::class)->build()->toArray();
+        $attributes = factory(Post::class)->raw();
 
         $response = $this->post('/posts', $attributes);
 
@@ -75,7 +75,7 @@ class PostsControllerTest extends TestCase
     {
         $post = factory(Post::class)->create();
 
-        $attributes = factory(Post::class)->build(['title' => 'Updated'])->toArray();
+        $attributes = factory(Post::class)->raw(['title' => 'Updated']);
 
         $response = $this->put("/posts/{$post->id}", $attributes);
 
